@@ -19,7 +19,7 @@ public class Level1 extends World
         // Create a new world with 1200x800 cells with a cell size of 1x1 pixels.
         super(1200, 800, 1, false); 
         prepare();
-        setPaintOrder(Player.class, Platform.class, Obstacle.class, Collectible.class,
+        setPaintOrder(Player1.class, Platform.class, Obstacle.class, Collectible.class,
               Door.class, HUD.class);
     }
     
@@ -29,12 +29,10 @@ public class Level1 extends World
      */
     private void prepare()
     {
-        Player player = new Player();
+        Player1 player = new Player1(3, 5.6f, GRAVITY, 3, 3, Level2.class, MUSIC);
         addObject(player,38,755);
         Door door = new Door();
         addObject(door,1175,128);
-        Player player2 = new Player();
-        addObject(player2,92,748);
         player.setLocation(67,748);
         player.setLocation(71,741);
         player.setLocation(55,738);
@@ -44,7 +42,6 @@ public class Level1 extends World
         player.setLocation(435,501);
         player.setLocation(-72,152);
         removeObject(player);
-        player2.setLocation(40,728);
         addObject(new Floor(), 600, 800);
         addObject(new BrickWall(), 880, 650);
         addObject(new SmBrickWall(), 250, 550);
@@ -59,6 +56,8 @@ public class Level1 extends World
         addObject(new TrapDoor(GRAVITY), 950, 650);
         addObject(new Powerup(), 1050, 270);
         addObject(new Collectible(), 1125, 265);
+        Player1 player1 = new Player1(3, 5.6f, GRAVITY, 3, 3, Level2.class, MUSIC);
+        addObject(player1,34,760);
     }
     
     private void spawn()

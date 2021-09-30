@@ -6,7 +6,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Player extends Actor
+public class Player1 extends Actor
 {  
      private Health[] health;
      private Powerup[] powerup;
@@ -24,9 +24,16 @@ public class Player extends Actor
      private final float GRAVITY;
      private final Class NEXT_LEVEL;
      private final GreenfootSound MUSIC;
-     public Player(int speed, float jumpForce, int maxHealth,
+     public Player1(int speed, float jumpForce, float gravity, int maxHealth,
                        int maxPowerUp, Class nextLevel, GreenfootSound music)
     {
+        this.speed = speed;
+        JUMP_FORCE = jumpForce;
+        GRAVITY = gravity;
+        NEXT_LEVEL = nextLevel;
+        MUSIC = music;
+        
+        STANDING_IMAGE = getImage();
         WALK_ANIMATION = new GreenfootImage[]
                         {                  
                            new GreenfootImage("walk0.png"),
@@ -39,7 +46,9 @@ public class Player extends Actor
     }
     
     public void act()
-    {  
+    { 
+        animator();
+        move(speed);
     }  
     
     public void addedToWorld(World world) {}
