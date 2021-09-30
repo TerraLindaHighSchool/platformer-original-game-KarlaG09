@@ -47,17 +47,76 @@ public class Player1 extends Actor
     
     public void act()
     { 
-        animator();
-        move(speed);
+        walk();
+        jump();
+        fall();
+        onCollision();
+        gameOver();
     }  
     
     public void addedToWorld(World world) {}
      
-    private void walk() {} 
-    private void jump() {}
+    private void walk() 
+    {
+       if(isWalking)
+        {
+        animator();
+        }
+        else
+        {
+            setImage(STANDING_IMAGE);
+            walkIndex = 0;
+        }
+        
+    if(Greenfoot.isKeyDown("right"))
+        { 
+            if(isFacingLeft)
+            {
+                mirrorImages();
+            }
+            isWalking = true;
+            isFacingLeft = false;
+            move(speed);
+        }
+        
+    if(Greenfoot.isKeyDown("left"))
+    {
+        if(!isFacingLeft)
+        {
+            mirrorImages();
+        }
+        isWalking = true;
+        isFacingLeft = true;
+        move(-speed);
+    }
+    
+    if(!(Greenfoot.isKeyDown("right") || Greenfoot.isKeyDown("left")))
+    {
+        isWalking = false;
+    }
+   } 
+    private void jump()
+    {   if(Greenfoot.isKeyDown("space") && isOnGround())
+    
+     {
+         Yvelocity = JUMP_FORCE;
+         isJumping = true;
+     }
+     if(isJumping && Yvelocity > 0)
+     {
+       setLocation(getX(), getY() - (int) Yvelocity);
+       Yvelocity -=GRAVITY;
+     }
+     else
+     {
+         isJumping = false;
+     }
+    }
+     
+     
     private void fall() {}
     private void animator() 
-    {
+     {
         if(frame % (15 - 2 * speed) == 0)
         {
             if(walkIndex < WALK_ANIMATION.length)
@@ -73,11 +132,18 @@ public class Player1 extends Actor
         frame++;
     }
     private void onCollision() {}
-    private void mirrorImages() {} 
+    private void mirrorImages() 
+    {
+        for(int i = 0; i < WALK_ANIMATION.length; i++)
+        {
+            WALK_ANIMATION[i].mirrorHorizontally();
+        }
+    } 
     private void gameOver() {}
     private boolean isOnGround() 
     {
-      return false;   
+      Actor ground = getOneObjectAtOffset(0, getImage().getHeight() /2, Platform.class);
+      return ground != null; 
     }
 }
   
