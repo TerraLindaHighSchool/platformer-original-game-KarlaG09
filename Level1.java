@@ -14,13 +14,12 @@ public class Level1 extends World
      * Constructor for objects of class BrickWorld.
      * 
      */
+
     public Level1()
     {    
         // Create a new world with 1200x800 cells with a cell size of 1x1 pixels.
         super(1200, 800, 1, false); 
-        prepare();
-        setPaintOrder(Player1.class, Platform.class, Obstacle.class, Collectible.class,
-              Door.class, HUD.class);
+        prepare();  
     }
     
     /**
@@ -28,7 +27,8 @@ public class Level1 extends World
      * That is: create the initial objects and add them to the world.
      */
     private void prepare()
-    {
+    { 
+        setPaintOrder(Player1.class, Platform.class, Obstacle.class, Collectible.class, Door.class, HUD.class);
         Player1 player = new Player1(3, 5.6f, GRAVITY, 3, 3, Level2.class, MUSIC);
         addObject(player,38,755);
         Door door = new Door();
@@ -61,7 +61,8 @@ public class Level1 extends World
     }
     
     private void spawn()
-    {
+    { 
+
         if(Math.random() < 0.0025)
         {
             addObject(new Rock(GRAVITY), Greenfoot.getRandomNumber(1200),   -30);

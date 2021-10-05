@@ -14,7 +14,7 @@ public class Player1 extends Actor
      private int speed;
      private int walkIndex;
      private int frame;
-     private float Yvelocity;
+     private float yVelocity;
      private boolean isWalking;
      private boolean isJumping;
      private boolean isFacingLeft;
@@ -99,13 +99,13 @@ public class Player1 extends Actor
     {   if(Greenfoot.isKeyDown("space") && isOnGround())
     
      {
-         Yvelocity = JUMP_FORCE;
+         yVelocity = JUMP_FORCE;
          isJumping = true;
      }
-     if(isJumping && Yvelocity > 0)
+     if(isJumping && yVelocity > 0)
      {
-       setLocation(getX(), getY() - (int) Yvelocity);
-       Yvelocity -=GRAVITY;
+       setLocation(getX(), getY() - (int) yVelocity);
+       yVelocity -=GRAVITY;
      }
      else
      {
@@ -114,7 +114,14 @@ public class Player1 extends Actor
     }
      
      
-    private void fall() {}
+    private void fall() 
+    {
+      if(!isJumping && !isOnGround())
+      {
+          setLocation(getX(), getY() - (int) yVelocity);
+          yVelocity -= GRAVITY;
+      }
+    }
     private void animator() 
      {
         if(frame % (15 - 2 * speed) == 0)
@@ -131,7 +138,12 @@ public class Player1 extends Actor
         }
         frame++;
     }
-    private void onCollision() {}
+    
+    private void onCollision() 
+    {
+    
+    }
+    
     private void mirrorImages() 
     {
         for(int i = 0; i < WALK_ANIMATION.length; i++)
