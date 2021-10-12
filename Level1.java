@@ -10,6 +10,12 @@ public class Level1 extends World
 {
     private final float GRAVITY = 0.0667f;
     private final GreenfootSound MUSIC = new GreenfootSound("zapsplat_024.mp3");
+    private final int SPEED = 3;
+    private final float JUMP_FORCE = 5.6f;
+    private final int MAX_HEALTH = 3;
+    private final int MAX_POWERUP = 3;
+    private final Class NEXT_LEVEL = Level2.class;
+    
     /**
      * Constructor for objects of class BrickWorld.
      * 
@@ -29,7 +35,7 @@ public class Level1 extends World
     private void prepare()
     { 
         setPaintOrder(Player1.class, Platform.class, Obstacle.class, Collectible.class, Door.class, HUD.class);
-        Player1 player = new Player1(3, 5.6f, GRAVITY, 3, 3, Level2.class, MUSIC);
+        Player1 player = new Player1(SPEED, JUMP_FORCE, GRAVITY, MAX_HEALTH, MAX_POWERUP, NEXT_LEVEL, MUSIC);
         addObject(player,38,755);
         Door door = new Door();
         addObject(door,1175,128);
@@ -68,4 +74,5 @@ public class Level1 extends World
             addObject(new Rock(GRAVITY), Greenfoot.getRandomNumber(1200),   -30);
         }
     }
+       
 }
