@@ -11,7 +11,7 @@ public class Level1 extends World
     private final float GRAVITY = 0.0667f;
     private final GreenfootSound MUSIC = new GreenfootSound("zapsplat_024.mp3");
     private final int SPEED = 3;
-    private final float JUMP_FORCE = 5.6f;
+    private final float JUMP_FORCE = 5.8f;
     private final int MAX_HEALTH = 3;
     private final int MAX_POWERUP = 3;
     private final Class NEXT_LEVEL = Level2.class;
@@ -64,6 +64,7 @@ public class Level1 extends World
         addObject(new Collectible(), 1125, 265);
         Player1 player1 = new Player1(3, 5.6f, GRAVITY, 3, 3, Level2.class, MUSIC);
         addObject(player1,34,760);
+        player1.setLocation(54,690);
     }
     
     private void spawn()

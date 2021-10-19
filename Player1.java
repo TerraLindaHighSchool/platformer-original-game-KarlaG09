@@ -144,7 +144,7 @@ public class Player1 extends Actor
     
     private void animator() 
      {
-        if(frame % (15 - 2 * speed) == 0)
+        if(frame % 4 == 0)
         {
             if(walkIndex < WALK_ANIMATION.length)
             {
