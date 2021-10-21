@@ -50,7 +50,8 @@ public class Level1 extends World
         removeObject(player);
         addObject(new Floor(), 600, 800);
         addObject(new BrickWall(), 880, 650);
-        addObject(new SmBrickWall(), 250, 550);
+        addObject(new SmBrickWall(),250 , 300);
+        addObject(new SmBrickWall(), 1000 , 550 );
         addObject(new BrickWall(), 550, 450);
         addObject(new SmBrickWall(), 1100, 300);
         addObject(new BrickWall(), 650, 200);
