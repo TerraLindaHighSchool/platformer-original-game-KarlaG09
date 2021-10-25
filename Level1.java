@@ -8,10 +8,10 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Level1 extends World
 {
-    private final float GRAVITY = 0.0667f;
+    private final float GRAVITY = 0.00667f;
     private final GreenfootSound MUSIC = new GreenfootSound("zapsplat_024.mp3");
-    private final int SPEED = 3;
-    private final float JUMP_FORCE = 5.8f;
+    private final int SPEED = 10;
+    private final float JUMP_FORCE = 6f;
     private final int MAX_HEALTH = 3;
     private final int MAX_POWERUP = 3;
     private final Class NEXT_LEVEL = Level2.class;
@@ -56,7 +56,7 @@ public class Level1 extends World
         addObject(new SmBrickWall(), 1100, 300);
         addObject(new BrickWall(), 650, 200);
         addObject(new SmBrickWall(), 1150, 185);
-        addObject(new Bomb(GRAVITY), 850, 165);
+        addObject(new Bomb(GRAVITY), 550, 410);
         addObject(new Bomb(GRAVITY), 1050, 770);
         addObject(new Powerup(), 43, 56);
         addObject(new TrapDoor(GRAVITY), 200, 550);

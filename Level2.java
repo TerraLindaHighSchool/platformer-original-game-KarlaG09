@@ -13,7 +13,7 @@ public class Level2 extends World
     private final int SPEED = 3;
     private final float JUMP_FORCE = 5.8f;
     private final int MAX_HEALTH = 3;
-    private final int MAX_POWERUP = 3;
+    private  final int MAX_POWERUP = 3;
     private final Class NEXT_LEVEL = Level2.class;
     
     /**
@@ -52,15 +52,15 @@ public class Level2 extends World
         addObject(new SmBrickWall(),150 , 650);
         addObject(new SmBrickWall(), 1025 , 650 );
         addObject(new BrickWall(), 550 , 550 );
-        addObject(new SmBrickWall(), 225, 400);
+        addObject(new BrickWall(), 75, 400);
         addObject(new SmBrickWall(),500 , 300);
         addObject(new SmBrickWall(),750 , 350);
         addObject(new SmBrickWall(),950 , 250);
-        addObject(new SmBrickWall(),200, 150);
+        addObject(new SmBrickWall(),250, 190);
         addObject(new BrickWall(), 600, 50);
         addObject(new SmBrickWall(), 1150, 185);
-        addObject(new Bomb(GRAVITY), 850, 165);
-        addObject(new Bomb(GRAVITY), 1050, 770);
+        addObject(new Bomb(GRAVITY), 950, 210);
+        addObject(new Bomb(GRAVITY),200,510);
         addObject(new Powerup(), 43, 56);
         addObject(new TrapDoor(GRAVITY), 200, 550);
         addObject(new TrapDoor(GRAVITY), 950, 650);
@@ -69,6 +69,7 @@ public class Level2 extends World
         Player1 player1 = new Player1(3, 5.6f, GRAVITY, 3, 3, Level2.class, MUSIC);
         addObject(player1,34,760);
         player1.setLocation(54,690);
+
     }
     
     private void spawn()
