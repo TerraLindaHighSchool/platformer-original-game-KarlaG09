@@ -10,13 +10,13 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class Level3 extends World
  
 {
-    private final float GRAVITY = 0.0667f;
-    private final GreenfootSound MUSIC = new GreenfootSound("incompetech_tribal.mp3");
+    private final float GRAVITY = 0.07f;
+    private final GreenfootSound MUSIC = new GreenfootSound("fairy.mp3");
     private final int SPEED = 3;
-    private final float JUMP_FORCE = 5.6f;
+    private final float JUMP_FORCE = 9.2f;
     private final int MAX_HEALTH = 3;
     private final int MAX_POWERUP = 3;
-    private final Class NEXT_LEVEL = Level2.class;
+    private final Class NEXT_LEVEL = WinSplash.class;
     /**
      * Constructor for objects of class Level3.
      * 
@@ -47,16 +47,24 @@ public class Level3 extends World
         addObject(new SmBrickWall(), 550, 125);
         addObject(new SmBrickWall(), 100,450);
         addObject(new SmBrickWall(), 725, 200);
-        addObject(new SmBrickWall(), 825, 700);
-        addObject(new SmBrickWall(), 1025, 575);
-        addObject(new SmBrickWall(), 900, 400);
-        addObject(new SmBrickWall(), 1075, 300);
+        addObject(new SmBrickWall(), 900, 700);
+        addObject(new SmBrickWall(), 1075, 600);
+        addObject(new SmBrickWall(), 1200, 525);
+        addObject(new SmBrickWall(), 1000, 350);
         addObject(new SmBrickWall(), 925, 200);
         addObject(new SmBrickWall(), 1150, 185);
-        addObject(new Bomb(GRAVITY), 950, 210);
+        addObject(new VerticalLine(), 775, 720);
+        addObject(new VerticalLine(), 775, 600);
+        addObject(new VerticalLine(), 775, 500);
+        addObject(new VerticalLine(), 775, 375);
+        addObject(new VerticalLine(), 775, 350);
+        addObject(new Bomb(GRAVITY), 900, 160);
         addObject(new Bomb(GRAVITY),175, 550);
+        addObject(new TrapDoor(GRAVITY), 825, 800);
+        addObject(new TrapDoor(GRAVITY), 945, 800);
+        addObject(new TrapDoor(GRAVITY), 1050, 800);
+        addObject(new TrapDoor(GRAVITY), 1150, 800);
         addObject(new Powerup(), 43, 56);
-      
         addObject(new Powerup(), 1050, 270);
         addObject(new Collectible(), 1125, 265);
         Player1 player1 = new Player1(3, 5.6f, GRAVITY, 3, 3, Level2.class, MUSIC);
