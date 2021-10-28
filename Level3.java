@@ -10,7 +10,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class Level3 extends World
  
 {
-    private final float GRAVITY = 0.07f;
+    private final float GRAVITY = 0.007f;
     private final GreenfootSound MUSIC = new GreenfootSound("fairy.mp3");
     private final int SPEED = 3;
     private final float JUMP_FORCE = 9.2f;
@@ -59,14 +59,12 @@ public class Level3 extends World
         addObject(new VerticalLine(), 775, 375);
         addObject(new VerticalLine(), 775, 350);
         addObject(new Bomb(GRAVITY), 900, 160);
-        addObject(new Bomb(GRAVITY),175, 550);
+        addObject(new Bomb(GRAVITY),125, 550);
         addObject(new TrapDoor(GRAVITY), 825, 800);
         addObject(new TrapDoor(GRAVITY), 945, 800);
         addObject(new TrapDoor(GRAVITY), 1050, 800);
         addObject(new TrapDoor(GRAVITY), 1150, 800);
-        addObject(new Powerup(), 43, 56);
-        addObject(new Powerup(), 1050, 270);
-        addObject(new Collectible(), 1125, 265);
+
         Player1 player1 = new Player1(3, 5.6f, GRAVITY, 3, 3, Level2.class, MUSIC);
         addObject(player1,34,760);
         player1.setLocation(54,690); 
